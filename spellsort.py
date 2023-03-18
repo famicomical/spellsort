@@ -5,7 +5,7 @@
 #Valid directories are associated with their CD-ROM images and then numbered according to alphabetization.
 #Finally, a valid title.txt is created in each directory that does not already have one.
 
-#Just place spellsort.py at root of your Wizard SD card and run.
+#Just place this file at root of your Wizard SD card and run: 'python spellsort.py'
 
 import os
 import os.path as path
@@ -90,7 +90,6 @@ acceptable10k= [str(x).zfill(4) for x in range(1000,10000)]
 
 #global to speed up folder creation
 suff= 0
-
 
 #creates a new folder and relocates the set of disc image files matching 'imagename' to the new folder
 def newspell(foldername, imagename):
@@ -182,7 +181,6 @@ if cleaning:
 	print('Cleaning up the root folder...')
 	clean()	
 	quit()
-
 
 
 spells=[]
