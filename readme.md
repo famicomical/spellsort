@@ -17,6 +17,21 @@ python spellsort.py --help
 ```
 will display your options for using the script.
 
+```
+usage: spellsort.py [-h] [--retitle] [--cleanup] [--compile]
+
+SpellSort program for Wizard/DocBrown CD drive emulators.
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --retitle   will force title.txt generation for all folders
+  --cleanup   moves all non-numeric files and folders to 'ignore' folder, does
+              nothing else
+  --compile   executes RunMe.bat in folder '01' after terminating
+
+```
+
+### more info
 
 Disc image files associated with each other are assumed to have the same base name. 
 
@@ -33,4 +48,6 @@ Only sorting by alpha is supported. Customized file order would require the crea
 Disc images must be uncompressed. spellsort will not automatically decompress zip/rar/etc archives.
 
 
-Warning: spellsort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. On a cleanup run, files that aren't used by Wizard will be moved to the 'ignore' folder.
+Warning: spellsort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. 
+
+On a cleanup run, files that aren't used by Wizard will be moved to the 'ignore' folder.
