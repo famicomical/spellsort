@@ -31,7 +31,7 @@ optional arguments:
 
 ```
 
-### Details
+## Details
 
 Disc image files associated with each other are assumed to have the same base name. 
 
