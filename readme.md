@@ -1,8 +1,8 @@
-# spellsort
+# SpellSort
 
-A script that will organize your disc images and prepare them for use with an Optical Drive Emulator (ODE). Namely, spellsort was designed for the Wizard and DocBrown ODE's for the FM-Towns Computers and the FM-Towns Marty console.
+A script that will organize your disc images and prepare them for use with an Optical Drive Emulator (ODE). Namely, SpellSort was designed for the Wizard and DocBrown ODE's for the FM-Towns Computers and the FM-Towns Marty console.
 
-Wizard & DocBrown require adherence to a strict folder structure to work properly. The user must manually rename directories and write 'titles' for their games to be displayed on the ODE's boot menu. spellsort was made to simplify game library maintenance for ODE users. Just drop your disc image files on the SD card any way you like and run spellsort to ready your device.
+Wizard & DocBrown require adherence to a strict folder structure to work properly. The user must manually rename directories and write 'titles' for their games to be displayed on the ODE's boot menu. SpellSort was made to simplify game library maintenance for ODE users. Just drop your disc image files on the SD card any way you like and run SpellSort to ready your device.
 
 
 ## Usage
@@ -41,13 +41,13 @@ Pu-Li-Ru-La (Japan).ccd
 Pu-Li-Ru-La (Japan).img
 Pu-Li-Ru-La (Japan).sub
 ```
-constitute a valid set. spellsort will not attempt to search for associated disc image files that don't have the same name.
+constitute a valid set. SpellSort will not attempt to search for associated disc image files that don't have the same name.
 
 Only sorting by alpha is supported. Customized file order would require the creation of a GUI, which is beyond the scope of this project.
 
-Disc images must be uncompressed. spellsort will not automatically decompress zip/rar/etc archives.
+Disc images must be uncompressed. SpellSort will not automatically decompress zip/rar/etc archives.
 
 
-Warning: spellsort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. 
+Warning: SpellSort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. 
 
 On a cleanup run, files that aren't used by Wizard will be moved to the 'ignore' folder.
