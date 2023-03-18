@@ -43,11 +43,10 @@ Pu-Li-Ru-La (Japan).sub
 ```
 constitute a valid set. SpellSort will not attempt to search for associated disc image files that don't have the same name.
 
-Only sorting by alpha is supported. Customized file order would require the creation of a GUI, which is beyond the scope of this project.
+Only sorting by alpha is supported. Customizable file-ordering would be accomplished best with the creation of a GUI, which is beyond the scope of this project.
 
 Disc images must be uncompressed. SpellSort will not automatically decompress zip/rar/etc archives.
 
-
-Warning: SpellSort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. 
+**Warning**: SpellSort will move all of the files on your SD card. If you are using your ODE's SD card as general storage, you can place your files in a folder called "ignore" at the root of the SD. This is the only folder whose contents will remain unchanged on a normal run. 
 
 On a cleanup run, files that aren't used by Wizard will be moved to the 'ignore' folder.
