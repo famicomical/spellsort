@@ -46,20 +46,21 @@ class Spell:
 		return self.image+" in folder "+self.folder
 
 	def swap(self,other):
-		tempname=self.folder+'.tmp0'
-		c=0
-		while True:
-			try:
-				os.rename(path.join(wd,self.folder),path.join(wd,tempname))
-				break
-			except OSError:
-				c+= 1
-				tempname = tempname+(f".tmp{c}")
-		os.rename(path.join(wd,other.folder), path.join(wd,self.folder))
-		os.rename(path.join(wd,tempname), path.join(wd,other.folder))
-		temp=self.folder
-		self.folder=other.folder
-		other.folder=temp
+		if self!=other:
+			tempname=self.folder+'.tmp0'
+			c=0
+			while True:
+				try:
+					os.rename(path.join(wd,self.folder),path.join(wd,tempname))
+					break
+				except OSError:
+					c+= 1
+					tempname = tempname+(f".tmp{c}")
+			os.rename(path.join(wd,other.folder), path.join(wd,self.folder))
+			os.rename(path.join(wd,tempname), path.join(wd,other.folder))
+			temp=self.folder
+			self.folder=other.folder
+			other.folder=temp
 
 	def maketitle(self):
 		with open(path.join(wd,self.folder,'title.txt'),'w') as title:
@@ -224,7 +225,7 @@ for entry in os.scandir():
 			#if there's more than one set of images per folder, split it up.
 			elif len(key)>1:
 				for k in range(len(key)):
-					spells+=[Spell(newspell(entry.name,key[k]),key[k][-4:])]
+					spells+=[Spell(newspell(entry.name,key[k]),key[k][:-4])]
 				if os.listdir(entry.name):
 					robust_rename('leftover', entry.name)
 				else:
@@ -243,12 +244,17 @@ def formati(index):
 
 #Here comes the sort
 list.sort(spells, key=lambda x: x.image.lower())
-folderlist= [f.folder for f in spells]
+
+def getfolderlist(spells):
+	return [f.folder for f in spells]
+
 
 #Assign numbers to folders, generate title.txt
 for i in range(len(spells)):
 	newname=formati(i)
 	if not spells[i].rename(newname):
+		#name collision, so we have to sort folders in place
+		folderlist=getfolderlist(spells) 
 		o=folderlist.index(newname)
 		spells[i].swap(spells[o])
 
