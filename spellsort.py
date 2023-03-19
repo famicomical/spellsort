@@ -83,6 +83,11 @@ class Spell:
 	def hastitle(self):
 		return path.isfile(path.join(wd, self.folder, 'title.txt'))
 
+	def gettitle(self):
+		with open(path.join(wd, self.folder,'title.txt'),'r') as titlefile:
+			title=titlefile.readline()
+		return title
+
 #valid folder names
 acceptable100= [str(x).zfill(2) for x in range(2,100)]
 acceptable1k= [str(x).zfill(3) for x in range(100,1000)]
@@ -233,12 +238,12 @@ for entry in os.scandir():
 
 
 #format index into a folder name
-def formati(index):
+def formati(index, title):
 	index+=2
 	if index<10:
-		return str(index).zfill(2)
+		return str(index).zfill(2)+' '+title
 	else:
-		return str(index)
+		return str(index)+' '+title
 
 #Here comes the sort
 list.sort(spells, key=lambda x: x.image.lower())
@@ -249,15 +254,18 @@ def getfolderlist(spells):
 
 #Assign numbers to folders, generate title.txt
 for i in range(len(spells)):
-	newname=formati(i)
+	
+	if not spells[i].hastitle() or retitling:
+		spells[i].maketitle()
+
+	newname=formati(i, spells[i].gettitle())
 	if not spells[i].rename(newname):
 		#name collision, so we have to sort folders in place
 		folderlist=getfolderlist(spells) 
 		o=folderlist.index(newname)
 		spells[i].swap(spells[o])
 
-	if not spells[i].hastitle() or retitling:
-		spells[i].maketitle()
+	
 
 if not runningbatch:
 	print("Done! Don't forget to execute RunMe.bat in folder 01.")
