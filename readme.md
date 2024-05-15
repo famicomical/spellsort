@@ -2,7 +2,7 @@
 
 A script that will organize your disc images and prepare them for use with an Optical Drive Emulator (ODE). Namely, SpellSort was designed for the Wizard and DocBrown ODE's for the FM-Towns Computers and the FM-Towns Marty console.
 
-Wizard & DocBrown require adherence to a strict folder structure to work properly. The user must manually rename directories and write 'titles' for their games to be displayed on the ODE's boot menu. SpellSort was made to simplify game library maintenance for ODE users. Just drop your disc image files on the SD card any way you like and run SpellSort to ready your device.
+Wizard & DocBrown devices require adherence to a strict folder structure on the SD card to work properly. The user must manually rename directories and write 'titles' for their games to be displayed on the ODE's boot menu. SpellSort was made to simplify game library maintenance for ODE users. Just drop your disc image files on the SD card any way you like and run SpellSort to ready your device.
 
 
 ## Usage
